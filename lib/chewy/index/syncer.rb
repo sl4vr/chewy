@@ -26,7 +26,7 @@ module Chewy
     #
     # @see Chewy::Index::Actions::ClassMethods#sync
     class Syncer
-      DEFAULT_SYNC_BATCH_SIZE = 3_000
+      DEFAULT_SYNC_BATCH_SIZE = 5_000
       ISO_DATETIME = /\A(\d{4})-(\d\d)-(\d\d) (\d\d):(\d\d):(\d\d)(\.\d+)?\z/.freeze
       OUTDATED_IDS_WORKER = lambda do |outdated_sync_field_type, source_data_hash, index, total, index_data|
         ::Process.setproctitle("chewy [#{index}]: sync outdated calculation (#{::Parallel.worker_number + 1}/#{total})") if index
